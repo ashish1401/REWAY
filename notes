@@ -1,0 +1,33 @@
+<section class="bg-[var(--white)] h-auto bg-cover">
+    <!-- Slider main container -->
+    <div class="swiper ">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper w-full h-full ">
+            <!-- Slides -->
+            <div class="swiper-slide flex justify-center items-center ">
+                <div class="h-fit w-fit">
+                    <!-- <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, rerum.</div> -->
+                    <img src="
+                    ./assets/img1-HERO.png" alt="" class="block hero-img  h-full w-full">
+                </div>
+            </div>
+            <div class="swiper-slide flex justify-center items-center ">
+                <div class="h-fit w-fit">
+                    <!-- <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, rerum.</div> -->
+                    <img src="
+                    ./assets/img2-HERO.png" alt="" class="block hero-img  h-full w-full">
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+</section>
