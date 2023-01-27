@@ -6,7 +6,9 @@ const swiper = new Swiper('.swiper-container', {
     loop: true,
     effect: "fade",
     // If we need pagination
-
+    pagination: {
+        el: '.swiper-pagination',
+    },
 
     // And if we need scrollbar
     scrollbar: {
