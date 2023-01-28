@@ -599,6 +599,14 @@ video {
   left: 5rem;
 }
 
+.top-48 {
+  top: 12rem;
+}
+
+.left-16 {
+  left: 4rem;
+}
+
 .z-\[-1\] {
   z-index: -1;
 }
@@ -690,10 +698,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.-mt-2 {
-  margin-top: -0.5rem;
 }
 
 .block {
