@@ -15,3 +15,27 @@ const swiper = new Swiper('.swiper-container', {
         el: '.swiper-scrollbar',
     },
 });
+let x;
+if (window.innerWidth < 500) {
+    x = 4;
+} else if (window.innerWidth > 500 && window.innerWidth < 1024) {
+    x = 7;
+} else {
+    x = 8;
+}
+var swiper2 = new Swiper(".swiper2", {
+    autoplay: true,
+    slidesPerView: x,
+    grid: {
+        rows: 1
+    },
+    direction: "horizontal",
+    loop: true,
+    autoplay: {
+        delay: 0.0006,
+        disableOnInteraction: false
+    },
+    speed: 4000,
+
+    spaceBetween: 0
+});
