@@ -567,6 +567,14 @@ video {
   top: 4rem;
 }
 
+.top-\[10\%\] {
+  top: 10%;
+}
+
+.top-\[20\%\] {
+  top: 20%;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -615,6 +623,18 @@ video {
   z-index: -10;
 }
 
+.z-\[16\] {
+  z-index: 16;
+}
+
+.z-\[15\] {
+  z-index: 15;
+}
+
+.z-\[2\] {
+  z-index: 2;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -656,6 +676,18 @@ video {
   margin-top: 1rem;
 }
 
+.mb-36 {
+  margin-bottom: 9rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-\[-1px\] {
+  margin-bottom: -1px;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -666,10 +698,6 @@ video {
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 
 .mb-7 {
@@ -750,6 +778,10 @@ video {
 
 .h-\[600px\] {
   height: 600px;
+}
+
+.h-\[1000px\] {
+  height: 1000px;
 }
 
 .h-96 {
@@ -834,6 +866,10 @@ video {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -886,12 +922,12 @@ video {
   overflow-x: hidden;
 }
 
-.rounded-full {
-  border-radius: 9999px;
-}
-
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .border-2 {
@@ -937,6 +973,10 @@ video {
   padding: 10px;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -945,6 +985,16 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .px-2 {
@@ -956,12 +1006,16 @@ video {
   padding-left: 0.5rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .pb-10 {
   padding-bottom: 2.5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .pb-20 {
@@ -1004,6 +1058,16 @@ video {
   line-height: 1;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1017,16 +1081,6 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .text-5xl {
@@ -1189,6 +1243,10 @@ video {
     top: 5rem;
   }
 
+  .sm\:h-\[650px\] {
+    height: 650px;
+  }
+
   .sm\:w-2\/3 {
     width: 66.666667%;
   }
@@ -1208,6 +1266,18 @@ video {
     top: 12rem;
   }
 
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .md\:mt-4 {
+    margin-top: 1rem;
+  }
+
   .md\:grid {
     display: grid;
   }
@@ -1220,14 +1290,14 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 }
 
@@ -1251,6 +1321,10 @@ video {
 
   .lg\:flex {
     display: flex;
+  }
+
+  .lg\:w-\[75\%\] {
+    width: 75%;
   }
 
   .lg\:w-3\/12 {
