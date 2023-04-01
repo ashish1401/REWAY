@@ -697,10 +697,6 @@ video {
   margin-top: 2.5rem;
 }
 
-.mt-\[100\%\] {
-  margin-top: 100%;
-}
-
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1380,6 +1376,10 @@ video {
     width: 50%;
   }
 
+  .sm\:grid-flow-col {
+    grid-auto-flow: column;
+  }
+
   .sm\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -1403,6 +1403,14 @@ video {
     margin-top: 1rem;
   }
 
+  .md\:mt-\[119\%\] {
+    margin-top: 119%;
+  }
+
+  .md\:mt-\[100\%\] {
+    margin-top: 100%;
+  }
+
   .md\:grid {
     display: grid;
   }
@@ -1411,16 +1419,20 @@ video {
     max-width: 350px;
   }
 
-  .md\:grid-flow-row {
-    grid-auto-flow: row;
-  }
-
   .md\:grid-flow-col {
     grid-auto-flow: column;
   }
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:items-end {
+    align-items: flex-end;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
   }
 
   .md\:px-4 {
