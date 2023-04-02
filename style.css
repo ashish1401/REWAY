@@ -21,6 +21,11 @@ a:hover {
     color: var(--green-sec);
 }
 
+a#diff:hover {
+    color: var(--green) !important;
+
+}
+
 /* .bg {
     background-image: url(./assets/wave.svg);
     background-repeat: no-repeat;
@@ -109,18 +114,12 @@ a {
 }
 
 /* section 2 */
-div.nchild:nth-child(odd) {
-    color: var(--white);
+div.nchild:nth-child(n) {
     opacity: 0.7;
+    margin-bottom: 10px;
 }
 
-div.nchild:nth-child(even) {
-    color: var(--white);
-    opacity: 0.7;
 
-
-
-}
 
 .main {
     width: 100%;
