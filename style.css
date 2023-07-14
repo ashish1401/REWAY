@@ -26,12 +26,12 @@ a#diff:hover {
 
 }
 
-/* .bg {
+.bg {
     background-image: url(./assets/wave.svg);
     background-repeat: no-repeat;
     background-position-y: 0%;
     background-size: 120%;
-} */
+}
 
 .nav-link,
 a {
