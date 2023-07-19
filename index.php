@@ -42,8 +42,7 @@
         <ul class="flex justify-between items-center gap-10 text-sm nav-menu shadow-[var(--green)]  ">
 
             <li>
-                <a href="https://play.google.com/store/apps/details?id=com.rewaytech.rewayusers"
-                    target="_blank"><button>Download the App</button></a>
+                <a href="#DOWNLOAD" target="_blank"><button>Download the App</button></a>
             </li>
 
             <li class="list-none  nav-item">
@@ -163,7 +162,7 @@
 
 
 
-    <section class=" pb-10  md:px-4 md:mb-0  pt-12 bg-[var(--green)]  " id="ABOUT" style="">
+    <section class="pb-10  md:px-4 md:mb-0  pt-12 bg-[var(--green)]  " id="ABOUT" style="">
         <h1
             class=" sm:text-6xl md:mb-2  flex items-center text-[var(--white)] justify-center font-bold text-center text-6xl bg ">
             About Us
@@ -217,7 +216,7 @@
         </div>
         </div>
 
-        <div class=" md:w-[75%]  mx-auto w-[90%] p-4  md:p-10 rounded-xl   ">
+        <div class=" md:w-[75%]  mx-auto w-[90%] p-4  md:p-10 rounded-xl   " id="#DOWNLOAD">
             <h1 class="md:text-4xl text-2xl text-[var(--white)] font-bold text-center mb-10">Download the Reway App
             </h1>
             <div class="md:grid md:grid-cols-2  bg-[var(--white)] p-4 shadow-xl rounded-md ">
@@ -488,8 +487,8 @@
             </div>
         </div>
     </section>
-    <section class="team mt-10 border-b-2 border-[var(--white)]">
-        <!-- <div class=" flex justify-center">
+    <!-- <section class="team mt-10 border-b-2 border-[var(--white)]"> -->
+    <!-- <div class=" flex justify-center">
             <h1 class="my-10 sm:text-6xl text-[var(--green)] flex  font-bold text-center text-6xl mt-4 ">
                 Our Team
             </h1>
@@ -574,34 +573,52 @@
 
 
         </div> -->
-    </section>
-    <!-- ======= Contact Section ======= -->
-    <section>
-        <!-- <div class="container">
-        <form action="action_page.php">
-      
-          <label for="fname">Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" placeholder="abc@example.com">
-      
-          <label for="address"><Address></Address></label>
-          <select id="address" name="address">
-            <option value="India">India</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-          </select>
-      
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Submit">
-      
+    <!-- </section> -->
+    <section class="p-40 my-10 relative w-2/3">
+        <h1
+            class=" sm:text-6xl mb-4 flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
+            Contact Us
+        </h1>
+        <form action="./action.php" method="post" class="p-32 flex flex-col gap-9 my-10 ">
+
+            <div class="flex w-10 flex-col px-10 mx-20 my-2  ">
+                <label >Name</label>
+                <input  required type="text" class=" rounded-md p-2 border-2" id="fname" name="firstname"
+                    placeholder="Your name..">
+            </div>
+
+            <div class="flex flex-col px-10 my-2">
+                <label >Email</label>
+                <input required class="rounded-md p-2 border-2" type="text" req name="email" placeholder="abc@example.com">
+
+            </div>
+            <div class="flex flex-col px-10 my-2">
+                <label >
+                    Address
+                </label>
+
+                <select required id="address" name="address" class="rounded-md p-2 border-2">
+                    <option value="India">India</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+            </div>
+
+            <div width="">
+                <div class="flex w-32 flex-col px-10 my-2">
+                    <label >Message</label>
+                    <textarea required id="subject" name="message" placeholder="Write something.."
+                        class="rounded-md p-2 border-2" style="height:200px"></textarea>
+                </div>
+            </div>
+
+            <div class="my-6 ">
+                <button type="submit"  class="rounded-lg mx-auto flex bg-[var(--green)] p-4">Submit</button>
+
+            </div>
         </form>
-      </div> -->
+
     </section>
-    <!-- End Contact Section -->
     <footer class="relative w-full z-10 bg-[var(--green)] pt-10 text-[var(--white)]  pb-10  lg:pb-20" id="CONTACT">
         <div class="mx-auto px-4  flex justify-center items-center ">
             <div class="-mx-4 flex flex-wrap justify-center align-middle">
