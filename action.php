@@ -8,6 +8,7 @@ $password = "";
 //make connection with sql
 $conn = new mysqli($servername,$username,$password,$dbname);
 
+echo "<br/>";
 if($conn->connect_error)
 {
     die("CONNECTION FAILED".$conn->connect_error);
