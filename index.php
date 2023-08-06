@@ -646,12 +646,12 @@ if ($request_method==='POST') {
 
         </div> -->
     <!-- </section> -->
-    <section class="p-40 my-10 relative ">
+    <section class="md:p-40 my-10 relative ">
         <h1
             class=" sm:text-6xl  flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
             Contact Us
         </h1>
-        <form method="post" action="./index.php"  class="p-32 flex flex-col gap-9 my-4 mx-auto ">
+        <form method="post" action="./index.php"  class="md:p-32 flex flex-col gap-9 my-4 md:mx-auto ">
 
             <div class="flex flex-col px-10  my-2  ">
                 <label >Name</label>
