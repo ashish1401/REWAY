@@ -66,6 +66,30 @@ if ($request_method==='POST') {
     <!-- Event snippet for Page view conversion page -->
     <script> gtag('event', 'conversion', { 'send_to': 'AW-11209824567/7r1ZCOK_lrAYELeyoeEp' }); </script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    
+
+    <!-- Event snippet for Website lead conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-11209824567/2TqJCL349cAYELeyoeEp', 'event_callback': callback }); return false; } </script>
+    
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '603276148584573');
+    fbq('track', 'PageView');
+    </script>
+
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=603276148584573&ev=PageView&noscript=1"/>
+</noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 
