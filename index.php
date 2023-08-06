@@ -1,3 +1,51 @@
+
+<?php
+//server created
+session_start();
+$request_method = strtoupper($_SERVER['REQUEST_METHOD']);
+$msg = " ";
+
+if ($request_method==='POST') {
+        //initialising server
+        $servername = "localhost";
+        $dbname = "reway technologies";
+        $username = "root";
+        $password = "";
+        //make connection with sql
+        $conn = new mysqli($servername,$username,$password,$dbname);
+        echo "<br/>";
+        if($conn->connect_error)
+         {
+            die("CONNECTION FAILED".$conn->connect_error);
+         }
+        $firstname = $_POST['firstname'];
+        $email=$_POST['email'];
+        $address=$_POST['address'];
+        $message = $_POST['message'];
+        $date = date("Y/m/d");
+        $msg = "";
+        $sql = "INSERT INTO `contactform` ( `Name`, `Email`, `Address`, `Message`, `Date`) VALUES ('$firstname', '$email', '$address', '$message',current_timestamp())";
+        if ($conn->query($sql) === TRUE) {
+            // place variables to sessions
+            $msg =  "Your response has been received!!";
+            $_SESSION["msg"] = $msg;
+                header('Location: ./' , true, 301);
+                exit;
+            } else {
+                $msg =  "Error: " . $sql . "<br>" . $conn->error;
+                $_SESSION["msg"] = $msg;
+        }
+    $conn->close();
+}elseif ($request_method==='GET'){
+    if (isset($_SESSION["msg"])) {
+        // get the valid state from the session
+        $msg = $_SESSION["msg"];
+        unset($_SESSION["msg"]);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +57,11 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./input.css">
     <link rel="stylesheet" href="./output.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11209824567"></script>
+    <link rel="icon" type="image/x-icon" href="./assets/">
     <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-11209824567'); </script>
     <!-- Event snippet for Page view conversion page -->
     <script> gtag('event', 'conversion', { 'send_to': 'AW-11209824567/7r1ZCOK_lrAYELeyoeEp' }); </script>
@@ -34,7 +82,7 @@
     <nav
         class="relative font--head font-bold p-[10px] m-0 text-[var(--white)] max-h-[70px]  bg-[var(--green)] flex items-center justify-between shadow-[var(--green)] shadow-md">
         <div class="scale-150 mx-4 ">
-            <a href="/" onclick=route() class="my-auto text-[1rem] "><img src="assets/logo1.png" class="" alt=""
+            <a href="./" onclick=route() class="my-auto text-[1rem] "><img src="assets/logo1.png" class="" alt=""
                     width="80px"></a>
         </div>
 
@@ -579,7 +627,7 @@
             class=" sm:text-6xl mb-4 flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
             Contact Us
         </h1>
-        <form action="./action.php" method="post" class="p-32 flex flex-col gap-9 my-10 ">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  class="p-32 flex flex-col gap-9 my-10 ">
 
             <div class="flex w-10 flex-col px-10 mx-20 my-2  ">
                 <label >Name</label>
@@ -613,10 +661,18 @@
             </div>
 
             <div class="my-6 ">
-                <button type="submit"  class="rounded-lg mx-auto flex bg-[var(--green)] p-4">Submit</button>
-
+                <input type="submit" name="submit" value="submit" class="rounded-lg mx-auto flex bg-[var(--green)] p-4"></input>
+                
+                <p class = "my-10 mx-auto text-xl font-bold text-center ">
+                    <?php
+                       echo( $msg." ");
+                    ?>
+                </p>
             </div>
         </form>
+
+
+      
 
     </section>
     <footer class="relative w-full z-10 bg-[var(--green)] pt-10 text-[var(--white)]  pb-10  lg:pb-20" id="CONTACT">
@@ -761,8 +817,14 @@
 
     <script src="./script.js"></script>
 
+   
+
 </body>
 
 
 </html>
 <!-- //hover:transition-all  hover:rounded-md hover:border-4 -->
+
+
+
+
