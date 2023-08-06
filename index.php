@@ -29,7 +29,7 @@ if ($request_method==='POST') {
             // place variables to sessions
             $msg =  "Your response has been received!!";
             $_SESSION["msg"] = $msg;
-                header('Location: ./' , true, 301);
+                header('Location: www.reway.tech' , true, 301);
                 exit;
             } else {
                 $msg =  "Error: " . $sql . "<br>" . $conn->error;
@@ -651,7 +651,7 @@ if ($request_method==='POST') {
             class=" sm:text-6xl mb-4 flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
             Contact Us
         </h1>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  class="p-32 flex flex-col gap-9 my-10 ">
+        <form method="post" action="./"  class="p-32 flex flex-col gap-9 my-10 ">
 
             <div class="flex w-10 flex-col px-10 mx-20 my-2  ">
                 <label >Name</label>
