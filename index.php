@@ -646,12 +646,12 @@ if ($request_method==='POST') {
 
         </div> -->
     <!-- </section> -->
-    <section class="p-40 my-10 relative w-2/3">
+    <section class="p-40 my-10 relative ">
         <h1
-            class=" sm:text-6xl mb-4 flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
+            class=" sm:text-6xl  flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
             Contact Us
         </h1>
-        <form method="post" action="./index.php"  class="p-32 flex flex-col gap-9 my-10 mx-auto ">
+        <form method="post" action="./index.php"  class="p-32 flex flex-col gap-9 my-4 mx-auto ">
 
             <div class="flex flex-col px-10  my-2  ">
                 <label >Name</label>
@@ -677,7 +677,7 @@ if ($request_method==='POST') {
             </div>
 
             <div width="">
-                <div class="flex w-32 flex-col px-10 my-2">
+                <div class="flex flex-col px-10 my-2">
                     <label >Message</label>
                     <textarea required id="subject" name="message" placeholder="Write something.."
                         class="rounded-md p-2 border-2" style="height:200px"></textarea>
