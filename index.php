@@ -689,7 +689,7 @@ if ($request_method==='POST') {
                 
                 <p class = "my-10 mx-auto text-xl font-bold text-center ">
                     <?php
-                       echo( $_SESSION["msg"]." ");
+                       echo( $msg." ");
                     ?>
                 </p>
             </div>
