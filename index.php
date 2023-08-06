@@ -1,3 +1,51 @@
+
+<?php
+//server created
+session_start();
+$request_method = strtoupper($_SERVER['REQUEST_METHOD']);
+$msg = " ";
+
+if ($request_method==='POST') {
+        //initialising server
+        $servername = "localhost";
+        $dbname = "reway technologies";
+        $username = "root";
+        $password = "";
+        //make connection with sql
+        $conn = new mysqli($servername,$username,$password,$dbname);
+        echo "<br/>";
+        if($conn->connect_error)
+         {
+            die("CONNECTION FAILED".$conn->connect_error);
+         }
+        $firstname = $_POST['firstname'];
+        $email=$_POST['email'];
+        $address=$_POST['address'];
+        $message = $_POST['message'];
+        $date = date("Y/m/d");
+        $msg = "";
+        $sql = "INSERT INTO `contactform` ( `Name`, `Email`, `Address`, `Message`, `Date`) VALUES ('$firstname', '$email', '$address', '$message',current_timestamp())";
+        if ($conn->query($sql) === TRUE) {
+            // place variables to sessions
+            $msg =  "Your response has been received!!";
+            $_SESSION["msg"] = $msg;
+                header('Location: ./' , true, 301);
+                exit;
+            } else {
+                $msg =  "Error: " . $sql . "<br>" . $conn->error;
+                $_SESSION["msg"] = $msg;
+        }
+    $conn->close();
+}elseif ($request_method==='GET'){
+    if (isset($_SESSION["msg"])) {
+        // get the valid state from the session
+        $msg = $_SESSION["msg"];
+        unset($_SESSION["msg"]);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +57,11 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./input.css">
     <link rel="stylesheet" href="./output.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11209824567"></script>
+    <link rel="icon" type="image/x-icon" href="./assets/">
     <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-11209824567'); </script>
     <!-- Event snippet for Page view conversion page -->
     <script> gtag('event', 'conversion', { 'send_to': 'AW-11209824567/7r1ZCOK_lrAYELeyoeEp' }); </script>
@@ -34,7 +82,7 @@
     <nav
         class="relative font--head font-bold p-[10px] m-0 text-[var(--white)] max-h-[70px]  bg-[var(--green)] flex items-center justify-between shadow-[var(--green)] shadow-md">
         <div class="scale-150 mx-4 ">
-            <a href="/" onclick=route() class="my-auto text-[1rem] "><img src="assets/logo1.png" class="" alt=""
+            <a href="./" onclick=route() class="my-auto text-[1rem] "><img src="assets/logo1.png" class="" alt=""
                     width="80px"></a>
         </div>
 
@@ -42,7 +90,7 @@
         <ul class="flex justify-between items-center gap-10 text-sm nav-menu shadow-[var(--green)]  ">
 
             <li>
-                <a href="#DOWNLOAD"><button>Download the App</button></a>
+                <a href="#DOWNLOAD" target="_blank"><button>Download the App</button></a>
             </li>
 
             <li class="list-none  nav-item">
@@ -56,7 +104,7 @@
             </li> -->
 
             <li class="list-none nav-item ">
-                <a href="#" onclick="route()" class="nav-link " style="text-decoration:none; ">Campaigns</a>
+                <a href="/campaigns" onclick="route()" class="nav-link " style="text-decoration:none; ">Campaigns</a>
             </li>
 
             <li class="list-none nav-item ">
@@ -162,7 +210,7 @@
 
 
 
-    <section class=" pb-10  md:px-4 md:mb-0  pt-12 bg-[var(--green)]  " id="ABOUT" style="">
+    <section class="pb-10  md:px-4 md:mb-0  pt-12 bg-[var(--green)]  " id="ABOUT" style="">
         <h1
             class=" sm:text-6xl md:mb-2  flex items-center text-[var(--white)] justify-center font-bold text-center text-6xl bg ">
             About Us
@@ -205,7 +253,7 @@
                     Reway for their electronic waste management needs.
                 </div>
 
-                <a href="#CONTACT" id="diff">
+                <a href="#CONTACT hover::text-[var(--green)]" id="diff">
                     <div
                         class="bg-[var(--green-sec)] opacity-50 rounded-lg p-4  mx-auto text-center text-xl font-bold my-10">
                         Contact us today to learn more and schedule your first pickup!
@@ -216,7 +264,7 @@
         </div>
         </div>
 
-        <div class=" md:w-[75%]  mx-auto w-[90%] p-4  md:p-10 rounded-xl   " id="DOWNLOAD">
+        <div class=" md:w-[75%]  mx-auto w-[90%] p-4  md:p-10 rounded-xl   " id="#DOWNLOAD">
             <h1 class="md:text-4xl text-2xl text-[var(--white)] font-bold text-center mb-10">Download the Reway App
             </h1>
             <div class="md:grid md:grid-cols-2  bg-[var(--white)] p-4 shadow-xl rounded-md ">
@@ -487,8 +535,8 @@
             </div>
         </div>
     </section>
-    <section class="team mt-10 border-b-2 border-[var(--white)]">
-        <!-- <div class=" flex justify-center">
+    <!-- <section class="team mt-10 border-b-2 border-[var(--white)]"> -->
+    <!-- <div class=" flex justify-center">
             <h1 class="my-10 sm:text-6xl text-[var(--green)] flex  font-bold text-center text-6xl mt-4 ">
                 Our Team
             </h1>
@@ -573,34 +621,60 @@
 
 
         </div> -->
-    </section>
-    <!-- ======= Contact Section ======= -->
-    <section>
-        <!-- <div class="container">
-        <form action="action_page.php">
-      
-          <label for="fname">Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" placeholder="abc@example.com">
-      
-          <label for="address"><Address></Address></label>
-          <select id="address" name="address">
-            <option value="India">India</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-          </select>
-      
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Submit">
-      
+    <!-- </section> -->
+    <section class="p-40 my-10 relative w-2/3">
+        <h1
+            class=" sm:text-6xl mb-4 flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
+            Contact Us
+        </h1>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  class="p-32 flex flex-col gap-9 my-10 ">
+
+            <div class="flex w-10 flex-col px-10 mx-20 my-2  ">
+                <label >Name</label>
+                <input  required type="text" class=" rounded-md p-2 border-2" id="fname" name="firstname"
+                    placeholder="Your name..">
+            </div>
+
+            <div class="flex flex-col px-10 my-2">
+                <label >Email</label>
+                <input required class="rounded-md p-2 border-2" type="text" req name="email" placeholder="abc@example.com">
+
+            </div>
+            <div class="flex flex-col px-10 my-2">
+                <label >
+                    Address
+                </label>
+
+                <select required id="address" name="address" class="rounded-md p-2 border-2">
+                    <option value="India">India</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
+            </div>
+
+            <div width="">
+                <div class="flex w-32 flex-col px-10 my-2">
+                    <label >Message</label>
+                    <textarea required id="subject" name="message" placeholder="Write something.."
+                        class="rounded-md p-2 border-2" style="height:200px"></textarea>
+                </div>
+            </div>
+
+            <div class="my-6 ">
+                <input type="submit" name="submit" value="submit" class="rounded-lg mx-auto flex bg-[var(--green)] p-4"></input>
+                
+                <p class = "my-10 mx-auto text-xl font-bold text-center ">
+                    <?php
+                       echo( $msg." ");
+                    ?>
+                </p>
+            </div>
         </form>
-      </div> -->
+
+
+      
+
     </section>
-    <!-- End Contact Section -->
     <footer class="relative w-full z-10 bg-[var(--green)] pt-10 text-[var(--white)]  pb-10  lg:pb-20" id="CONTACT">
         <div class="mx-auto px-4  flex justify-center items-center ">
             <div class="-mx-4 flex flex-wrap justify-center align-middle">
@@ -743,8 +817,14 @@
 
     <script src="./script.js"></script>
 
+   
+
 </body>
 
 
 </html>
 <!-- //hover:transition-all  hover:rounded-md hover:border-4 -->
+
+
+
+
