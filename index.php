@@ -10,7 +10,7 @@ if ($request_method==='POST') {
         $servername = "localhost";
         $dbname = "reway technologies";
         $username = "root";
-        $password = "";
+        $password = "str0ngpAssw0rd16o62023";
         //make connection with sql
         $conn = new mysqli($servername,$username,$password,$dbname);
         echo "<br/>";
