@@ -1,50 +1,5 @@
 
-<?php
-//server created
-session_start();
-$request_method = strtoupper($_SERVER['REQUEST_METHOD']);
-$msg = " ";
 
-if ($request_method==='POST') {
-        //initialising server
-        $servername = "localhost";
-        $dbname = "reway technologies";
-        $username = "root";
-        $password = "str0ngpAssw0rd16o62023";
-        //make connection with sql
-        $conn = new mysqli($servername,$username,$password,$dbname);
-        echo "<br/>";
-        if($conn->connect_error)
-         {
-            die("CONNECTION FAILED".$conn->connect_error);
-         }
-        $firstname = $_POST['firstname'];
-        $email=$_POST['email'];
-        $address=$_POST['address'];
-        $message = $_POST['message'];
-        $date = date("Y/m/d");
-        $msg = "";
-        $sql = "INSERT INTO `contactform` ( `Name`, `Email`, `Address`, `Message`, `Date`) VALUES ('$firstname', '$email', '$address', '$message',current_timestamp())";
-        if ($conn->query($sql) === TRUE) {
-            // place variables to sessions
-            $msg =  "Your response has been received!!";
-            $_SESSION["msg"] = $msg;
-                header('Location: www.reway.tech' , true, 301);
-                exit;
-            } else {
-                $msg =  "Error: " . $sql . "<br>" . $conn->error;
-                $_SESSION["msg"] = $msg;
-        }
-    $conn->close();
-}elseif ($request_method==='GET'){
-    if (isset($_SESSION["msg"])) {
-        // get the valid state from the session
-        $msg = $_SESSION["msg"];
-        unset($_SESSION["msg"]);
-    }
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -651,7 +606,7 @@ if ($request_method==='POST') {
             class=" sm:text-6xl  flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
             Contact Us
         </h1>
-        <form method="post" action="./index.php"  class="md:p-32 flex flex-col gap-9 my-4 md:mx-auto ">
+        <form method="post" action="./action.php"  class="md:p-24 flex flex-col gap-9 my-4 md:mx-auto ">
 
             <div class="flex flex-col px-10  my-2  ">
                 <label >Name</label>
@@ -689,7 +644,7 @@ if ($request_method==='POST') {
                 
                 <p class = "my-10 mx-auto text-xl font-bold text-center ">
                     <?php
-                       echo( $msg." ");
+                       echo( $_SESSION["msg"]." ");
                     ?>
                 </p>
             </div>
