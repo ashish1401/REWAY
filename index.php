@@ -651,9 +651,9 @@ if ($request_method==='POST') {
             class=" sm:text-6xl mb-4 flex items-center text-[var(--green)] justify-center font-bold text-center text-6xl ">
             Contact Us
         </h1>
-        <form method="post" action="./index.php"  class="p-32 flex flex-col gap-9 my-10 ">
+        <form method="post" action="./index.php"  class="p-32 flex flex-col gap-9 my-10 mx-auto ">
 
-            <div class="flex w-10 flex-col px-10 mx-20 my-2  ">
+            <div class="flex flex-col px-10  my-2  ">
                 <label >Name</label>
                 <input  required type="text" class=" rounded-md p-2 border-2" id="fname" name="firstname"
                     placeholder="Your name..">
